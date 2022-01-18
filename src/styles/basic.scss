@@ -4,3 +4,9 @@ p,
 a {
   user-select: none;
 }
+
+@media (min-width: 1264px) {
+  .container {
+    padding: 32px !important;
+  }
+}

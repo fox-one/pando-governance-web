@@ -8,13 +8,12 @@ const config: NuxtConfig = {
   },
   srcDir: "./src",
   head: {
-    title: "nuxt-ts-template-source",
+    title: "Pando Governance",
     meta: [
       { charset: "utf-8" },
       {
         name: "viewport",
-        content:
-          "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+        content: "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
       },
       {
         hid: "description",
@@ -37,11 +36,7 @@ const config: NuxtConfig = {
   },
   loading: { color: "#fff" },
   css: ["~/styles/index.scss"],
-  plugins: [
-    "~/plugins/property.ts",
-    "~/plugins/libs.ts",
-    "~/plugins/persistedstate.ts",
-  ],
+  plugins: ["~/plugins/property.ts", "~/plugins/libs.ts", "~/plugins/persistedstate.ts"],
   buildModules: [
     "@nuxtjs/eslint-module",
     [

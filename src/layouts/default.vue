@@ -1,31 +1,23 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <nuxt />
-    </v-main>
+    <desktop-layout />
   </v-app>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import DesktopLayout from "@/components/layouts/desktop/DesktopLayout.vue";
 
-@Component
-class DefaultLayout extends Vue {}
+@Component({
+  components: {
+    DesktopLayout,
+  },
+})
+class DefaultLayout extends Vue {
+  get isMobile() {
+    return this.$vuetify.breakpoint.mobile;
+  }
+}
 export default DefaultLayout;
 </script>
 
