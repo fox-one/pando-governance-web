@@ -1,5 +1,9 @@
 <template>
-  <div></div>
+  <f-app-bar flat height="56">
+    <v-icon>
+      $FIconMenu
+    </v-icon>
+  </f-app-bar>
 </template>
 
 <script lang="ts">

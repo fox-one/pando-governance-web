@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="desktop-layout">
     <app-bar />
 
     <v-main>

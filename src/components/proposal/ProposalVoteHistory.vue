@@ -5,7 +5,14 @@
     </div>
 
     <div class="vote-history__items">
-      <v-data-table :headers="headers" :items="items" hide-default-footer disable-pagination class="history-table">
+      <v-data-table
+        :headers="headers"
+        :items="items"
+        :mobile-breakpoint="0"
+        hide-default-footer
+        disable-pagination
+        class="history-table"
+      >
         <template #[`item.node`]="{ item }">
           <span class="node-field">{{ item.node }}</span>
         </template>

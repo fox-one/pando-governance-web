@@ -9,6 +9,7 @@ import {
   FIconMixinFill,
   FIconRedditFill,
   FIconChevronLeft4PBold,
+  FIconMenu,
 } from "@foxone/icons";
 
 const ficons = {
@@ -22,6 +23,7 @@ const ficons = {
   FIconMixinFill: { component: FIconMixinFill },
   FIconRedditFill: { component: FIconRedditFill },
   FIconChevronLeft4PBold: { component: FIconChevronLeft4PBold },
+  FIconMenu: { component: FIconMenu },
 };
 
 const icons = ["IconPandoLogo", "IconCategory"].reduce((m, k) => ({ ...m, [k]: { component: k } }), {});

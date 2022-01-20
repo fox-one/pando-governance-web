@@ -13,39 +13,41 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
+
+export const PRODUCTS = [
+  {
+    text: "All DApps",
+    icon: "$IconCategory",
+    value: "all",
+  },
+  {
+    text: "Pando Lake",
+    icon: "$FIconLakeLogo",
+    value: "lake",
+  },
+  {
+    text: "Pando Rings",
+    icon: "$FIconRingsLogo",
+    value: "rings",
+  },
+  {
+    text: "Pando Leaf",
+    icon: "$FIconLeafLogo",
+    value: "leaf",
+  },
+  {
+    text: "4Swap",
+    icon: "$FIconFSwapLogo",
+    value: "4swap",
+  },
+];
 
 @Component
 class ProductSidebar extends Vue {
-  current = "all";
+  @Prop() current;
 
-  items = [
-    {
-      text: "All DApps",
-      icon: "$IconCategory",
-      value: "all",
-    },
-    {
-      text: "Pando Lake",
-      icon: "$FIconLakeLogo",
-      value: "lake",
-    },
-    {
-      text: "Pando Rings",
-      icon: "$FIconRingsLogo",
-      value: "rings",
-    },
-    {
-      text: "Pando Leaf",
-      icon: "$FIconLeafLogo",
-      value: "leaf",
-    },
-    {
-      text: "4Swap",
-      icon: "$FIconFSwapLogo",
-      value: "4swap",
-    },
-  ];
+  items = PRODUCTS;
 }
 export default ProductSidebar;
 </script>

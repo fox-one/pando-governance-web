@@ -40,4 +40,12 @@ export default ProposalState;
     background: #f2f9fb;
   }
 }
+
+.mobile-layout {
+  .proposal-state {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
 </style>

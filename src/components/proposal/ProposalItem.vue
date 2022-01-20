@@ -60,4 +60,21 @@ export default ProposalItem;
     }
   }
 }
+
+.mobile-layout {
+  .proposal-item {
+    align-items: center;
+
+    &__title {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &__subtitle {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
 </style>

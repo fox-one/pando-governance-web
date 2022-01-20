@@ -12,8 +12,12 @@ export default function({ store }) {
     theme: {
       dark: isDark,
       themes: {
-        light: {},
-        dark: {},
+        light: {
+          primary: "#000000",
+        },
+        dark: {
+          primary: "#FFFFFF",
+        },
       },
     },
   };

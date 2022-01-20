@@ -1,17 +1,19 @@
 <template>
   <v-container>
-    <v-layout>
-      <div class="left-side">
-        <proposal-brief-info />
-      </div>
-      <v-flex class="px-8">
+    <proposal-detail-page-layout>
+      <template #detail>
         <proposal-detail />
-      </v-flex>
-      <div class="right-side">
+      </template>
+      <template #brief>
+        <proposal-brief-info />
+      </template>
+      <template #result>
         <proposal-result />
-        <proposal-vote-history class="mt-6" />
-      </div>
-    </v-layout>
+      </template>
+      <template #vote>
+        <proposal-vote-history />
+      </template>
+    </proposal-detail-page-layout>
   </v-container>
 </template>
 
@@ -21,6 +23,7 @@ import ProposalBriefInfo from "@/components/proposal/ProposalBriefInfo.vue";
 import ProposalResult from "@/components/proposal/ProposalResult.vue";
 import ProposalVoteHistory from "@/components/proposal/ProposalVoteHistory.vue";
 import ProposalDetail from "@/components/proposal/ProposalDetail.vue";
+import ProposalDetailPageLayout from "~/components/proposal/ProposalDetailPageLayout.vue";
 
 @Component({
   components: {
@@ -28,6 +31,7 @@ import ProposalDetail from "@/components/proposal/ProposalDetail.vue";
     ProposalResult,
     ProposalVoteHistory,
     ProposalDetail,
+    ProposalDetailPageLayout,
   },
 })
 class ProposalDetailPage extends Vue {}

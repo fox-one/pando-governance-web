@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mobile-layout">
     <app-bar />
 
     <v-main>
