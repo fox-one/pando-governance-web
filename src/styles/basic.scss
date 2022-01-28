@@ -5,6 +5,10 @@ a {
   user-select: none;
 }
 
+.container {
+  padding: 16px !important;
+}
+
 @media (min-width: 1264px) {
   .container {
     padding: 32px !important;

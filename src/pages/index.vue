@@ -13,7 +13,7 @@
         <product-tabs :current="currentTab" />
       </div>
       <div v-else class="home-sidebar">
-        <product-sidebar :current="currentTab" />
+        <product-sidebar :current.sync="currentTab" />
       </div>
 
       <v-flex class="home-list">
@@ -91,7 +91,7 @@ export default IndexPage;
   }
 
   .home-list {
-    padding: 0 16px;
+    padding: 0;
   }
 }
 </style>

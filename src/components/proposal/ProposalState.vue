@@ -35,7 +35,7 @@ export default ProposalState;
     background: #ffeee6;
   }
 
-  &--closed {
+  &--passed {
     color: #63a8b8;
     background: #f2f9fb;
   }

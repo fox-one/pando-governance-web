@@ -10,6 +10,7 @@ import {
   FIconRedditFill,
   FIconChevronLeft4PBold,
   FIconMenu,
+  FIconChevronDown4PBold,
 } from "@foxone/icons";
 
 const ficons = {
@@ -24,8 +25,9 @@ const ficons = {
   FIconRedditFill: { component: FIconRedditFill },
   FIconChevronLeft4PBold: { component: FIconChevronLeft4PBold },
   FIconMenu: { component: FIconMenu },
+  FIconChevronDown4PBold: { component: FIconChevronDown4PBold },
 };
 
-const icons = ["IconPandoLogo", "IconCategory"].reduce((m, k) => ({ ...m, [k]: { component: k } }), {});
+const icons = ["IconPandoLogo", "IconCategory", "IconCollapse"].reduce((m, k) => ({ ...m, [k]: { component: k } }), {});
 
 export default { ...icons, ...ficons };

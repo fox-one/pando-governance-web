@@ -1,5 +1,5 @@
 <template>
-  <f-app-bar custom-content flat height="96">
+  <f-app-bar app custom-content flat height="96">
     <v-icon size="32">$IconPandoLogo</v-icon>
     <v-spacer />
     <nav-links />

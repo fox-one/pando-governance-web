@@ -5,54 +5,53 @@
       :key="index"
       class="product-item"
       :class="[{ 'product-item--active': item.value === current }]"
+      @click="handleSelect(item)"
     >
-      <v-icon class="pr-4">{{ item.icon }}</v-icon>
+      <v-icon v-if="item.icon" class="mr-4">{{ item.icon }}</v-icon>
+      <v-avatar v-if="item.logo" :size="24" class="mr-4">
+        <v-img :src="item.logo" />
+      </v-avatar>
       <span>{{ item.text }}</span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
-
-export const PRODUCTS = [
-  {
-    text: "All DApps",
-    icon: "$IconCategory",
-    value: "all",
-  },
-  {
-    text: "Pando Lake",
-    icon: "$FIconLakeLogo",
-    value: "lake",
-  },
-  {
-    text: "Pando Rings",
-    icon: "$FIconRingsLogo",
-    value: "rings",
-  },
-  {
-    text: "Pando Leaf",
-    icon: "$FIconLeafLogo",
-    value: "leaf",
-  },
-  {
-    text: "4Swap",
-    icon: "$FIconFSwapLogo",
-    value: "4swap",
-  },
-];
+import { Component, Vue, PropSync } from "vue-property-decorator";
 
 @Component
 class ProductSidebar extends Vue {
-  @Prop() current;
+  @PropSync("current") bindCurrent;
 
-  items = PRODUCTS;
+  get items() {
+    const apps = this.$store.state.apps.apps;
+    const items = apps.map((x) => {
+      return { text: x.name, logo: x.avatar, value: x.id };
+    });
+
+    return [
+      {
+        text: "All DApps",
+        icon: "$IconCategory",
+        value: "all",
+      },
+      ...items,
+    ];
+  }
+
+  handleSelect(item) {
+    this.bindCurrent = item.value;
+  }
 }
 export default ProductSidebar;
 </script>
 
 <style lang="scss" scoped>
+.product-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
 .product-item {
   display: flex;
   align-items: center;

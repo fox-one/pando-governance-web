@@ -1,5 +1,10 @@
 import { prefix as AppPrefix, MutationTypes as AppMutationTypes } from "./modules/app/types";
 import {
+  prefix as AppsPrefix,
+  MutationTypes as AppsMutationTypes,
+  ActionTypes as AppsActionTypes,
+} from "./modules/apps/types";
+import {
   prefix as ProposalPrefix,
   MutationTypes as ProposalMutationTypes,
   ActionTypes as ProposalActionTypes,
@@ -23,11 +28,13 @@ function getGlobalTypes<T>(types: T, prefix: string) {
 export const GlobalMutations = {
   ...getGlobalTypes(ProposalMutationTypes, ProposalPrefix),
   ...getGlobalTypes(AppMutationTypes, AppPrefix),
+  ...getGlobalTypes(AppsMutationTypes, AppsPrefix),
   ...getGlobalTypes(AuthMutationTypes, AuthPrefix),
 };
 
 export const GlobalActions = {
   ...getGlobalTypes(ProposalActionTypes, ProposalPrefix),
+  ...getGlobalTypes(AppsActionTypes, AppsPrefix),
 };
 
 export const GlobalGetters = {

@@ -7,6 +7,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import ProposalItem from "./ProposalItem.vue";
+import { getProposalStatusMeta } from "@/enums";
 
 @Component({
   components: {
@@ -14,29 +15,26 @@ import ProposalItem from "./ProposalItem.vue";
   },
 })
 class ProposalList extends Vue {
-  proposals = [
-    {
-      title: "#91 Incentivizing DAO participation: Ideas and Strategies",
-      time: "2 days ago",
-      product: "Pando Lake",
-      state: "active",
-    },
-    {
-      title: "#91 Incentivizing DAO participation: Ideas and Strategies",
-      time: "2 days ago",
-      product: "Pando Lake",
-      state: "active",
-    },
-    {
-      title: "#91 Incentivizing DAO participation: Ideas and Strategies",
-      time: "2 days ago",
-      product: "Pando Lake",
-      state: "closed",
-    },
-  ];
+  get proposals() {
+    const proposals: API.Proposal[] = this.$store.state.proposal.proposals;
+    const apps: API.App[] = this.$store.state.apps.apps;
+
+    return proposals.map((x) => {
+      const app = apps.find((app) => app.id === x.app_id);
+      const statusMeta = getProposalStatusMeta(x.status);
+
+      return {
+        id: x.id,
+        title: x.title,
+        time: this.$utils.time.toRelative(x.created_at),
+        product: app?.name ?? "",
+        state: this.$t(statusMeta.text),
+      };
+    });
+  }
 
   handleClick(item) {
-    this.$router.push({ name: "proposal-id", params: {} });
+    this.$router.push({ name: "proposal-id", params: { id: item.id } });
   }
 }
 export default ProposalList;
