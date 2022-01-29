@@ -16,7 +16,7 @@
     <div v-else-if="!empty" class="empty-hint text-secondary caption text-center pa-5">
       <div v-if="filter">{{ $t("not-found") }}</div>
       <slot v-else name="empty">
-        {{ hint || $t("common.empty") }}
+        {{ hint || $t("empty") }}
       </slot>
     </div>
   </div>

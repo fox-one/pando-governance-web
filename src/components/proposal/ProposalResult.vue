@@ -1,7 +1,7 @@
 <template>
   <div class="result">
     <div class="result-title">
-      Results
+      {{ $t("results") }}
     </div>
 
     <div class="divider" />
@@ -36,11 +36,11 @@ class ProposalResult extends Vue {
 
     return [
       {
-        title: "Agree",
+        title: this.$t("agree"),
         value: voteCount,
       },
       {
-        title: "Not voted",
+        title: this.$t("not-voted"),
         value: memberCount - voteCount,
       },
     ];

@@ -14,13 +14,13 @@ class Associats extends Vue {
   get associats() {
     return [
       {
-        text: "Team",
+        text: this.$t("team"),
       },
       {
-        text: "Blog",
+        text: this.$t("blog"),
       },
       {
-        text: "Document",
+        text: this.$t("document"),
       },
     ];
   }

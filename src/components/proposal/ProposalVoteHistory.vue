@@ -1,7 +1,7 @@
 <template>
   <div class="vote-history">
     <div class="vote-history__title">
-      History
+      {{ $t("history") }}
     </div>
 
     <div class="vote-history__items">
@@ -38,12 +38,12 @@ class ProposalVoteHistory extends Vue {
   get headers() {
     return [
       {
-        text: "Node",
+        text: this.$t("node"),
         value: "node",
         sortable: false,
       },
       {
-        text: "Option",
+        text: this.$t("option"),
         value: "option",
         sortable: false,
         align: "right",
@@ -64,7 +64,7 @@ class ProposalVoteHistory extends Vue {
           isVoted,
           logo: x.avatar,
           node: x.name,
-          option: isVoted ? "Agreed" : "Not Vote",
+          option: isVoted ? this.$t("agreed") : this.$t("not-voted"),
         };
       })
       .sort((a, b) => {

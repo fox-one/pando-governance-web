@@ -25,38 +25,6 @@ import { Component, Vue } from "vue-property-decorator";
 import { VMenu, VListGroup } from "vuetify/lib";
 import NavLinkGroup from "./NavLinkGroup.vue";
 
-export const links = [
-  {
-    title: "Products",
-    items: [
-      {
-        title: "Pando Rings",
-        href: "",
-      },
-      {
-        title: "Pando Leaf",
-        href: "",
-      },
-      {
-        title: "Pando Lake",
-        href: "",
-      },
-      {
-        title: "Fennec",
-        href: "",
-      },
-    ],
-  },
-  {
-    title: "Developers",
-    href: "",
-  },
-  {
-    title: "DAO",
-    href: "",
-  },
-];
-
 @Component({
   components: {
     VMenu,
@@ -65,7 +33,39 @@ export const links = [
   },
 })
 class NavLinks extends Vue {
-  links = links;
+  get links() {
+    return [
+      {
+        title: "Products",
+        items: [
+          {
+            title: "Pando Rings",
+            href: "",
+          },
+          {
+            title: "Pando Leaf",
+            href: "",
+          },
+          {
+            title: "Pando Lake",
+            href: "",
+          },
+          {
+            title: "Fennec",
+            href: "",
+          },
+        ],
+      },
+      {
+        title: this.$t("developers"),
+        href: "",
+      },
+      {
+        title: this.$t("dao"),
+        href: "",
+      },
+    ];
+  }
 
   get isMobile() {
     return this.$vuetify.breakpoint.mobile;

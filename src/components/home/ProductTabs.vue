@@ -24,7 +24,7 @@ class ProductTabs extends Vue {
 
     return [
       {
-        text: "All DApps",
+        text: this.$t("apps.all"),
         icon: "$IconCategory",
         value: "all",
       },

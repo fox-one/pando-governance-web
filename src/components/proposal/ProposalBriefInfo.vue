@@ -1,7 +1,7 @@
 <template>
   <div class="brief-info sticky-top">
     <div class="brief-info__title">
-      Proposal Info
+      {{ $t("proposal.info") }}
     </div>
     <div class="divider"></div>
     <div class="brief-info__items">
@@ -39,21 +39,21 @@ class ProposalBriefInfo extends Vue {
 
     return [
       {
-        title: "Dapp",
+        title: this.$t("dapp"),
         value: app?.name ?? "",
         logo: app?.avatar ?? "",
       },
       {
-        title: "State",
+        title: this.$t("state"),
         value: this.$createElement(ProposalState, { props: { state: proposal.status, small: true } }),
       },
       {
-        title: "Author",
+        title: this.$t("author"),
         value: proposal.creator.name,
         logo: proposal.creator.avatar,
       },
       {
-        title: "Date",
+        title: this.$t("date"),
         value: this.$utils.time.format(proposal.created_at),
       },
     ];

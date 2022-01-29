@@ -5,7 +5,9 @@
         <v-img src="/images/brand.png" :max-width="sloganWidth" />
       </div>
 
-      <div class="slogan mt-8">Welcome to check Pando governance</div>
+      <div class="slogan mt-8">
+        {{ $t("slogn") }}
+      </div>
     </div>
 
     <v-layout class="home-content">

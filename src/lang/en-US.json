@@ -1,7 +1,26 @@
 {
-  "hello": "Hello",
-
-  "errorcode.-1": "NETWORK ERROR",
-  "errorcode.404": "CANNOT FIND RESOURCE",
-  "errorcode.fallback": "NETWORK ERROR"
+  "active": "Active",
+  "agree": "Agree",
+  "agreed": "Agreed",
+  "apps.all": "All DApps",
+  "author": "Author",
+  "blog": "Blog",
+  "dao": "DAO",
+  "dapp": "DApp",
+  "date": "Date",
+  "developers": "Developers",
+  "document": "Document",
+  "empty": "Empty",
+  "error": "Something Error",
+  "history": "History",
+  "node": "Node",
+  "not-found": "Not Found",
+  "not-voted": "Not Voted",
+  "option": "Option",
+  "passed": "Passed",
+  "proposal.info": "Proposal Info",
+  "results": "Results",
+  "slogn": "Welcome to check Pando governance",
+  "state": "State",
+  "team": "Team"
 }
