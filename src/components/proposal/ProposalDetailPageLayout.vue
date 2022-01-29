@@ -1,6 +1,7 @@
 <template>
   <div class="proposal-detail-layout">
     <div v-if="isMobile">
+      <nav-back class="mb-4 sticky-top pb-2" />
       <div class="mb-6">
         <slot name="detail" />
       </div>
@@ -22,9 +23,11 @@
         <slot name="detail" />
       </v-flex>
       <div class="right-side">
-        <slot name="result" />
-        <div class="mt-6">
-          <slot name="vote" />
+        <div class="sticky-top">
+          <slot name="result" />
+          <div class="mt-6">
+            <slot name="vote" />
+          </div>
         </div>
       </div>
     </v-layout>
@@ -33,8 +36,13 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import NavBack from "@/components/common/NavBack.vue";
 
-@Component
+@Component({
+  components: {
+    NavBack,
+  },
+})
 class ProposalDetailPageLayout extends Vue {
   get isMobile() {
     return this.$vuetify.breakpoint.mobile;
@@ -42,3 +50,10 @@ class ProposalDetailPageLayout extends Vue {
 }
 export default ProposalDetailPageLayout;
 </script>
+
+<style lang="scss" scoped>
+.left-side,
+.right-side {
+  flex: 0 0 320px;
+}
+</style>

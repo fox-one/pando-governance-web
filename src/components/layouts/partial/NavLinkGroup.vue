@@ -8,7 +8,9 @@
         <slot name="activator" />
       </template>
 
-      <slot />
+      <div class="nav-list-group--content">
+        <slot />
+      </div>
     </v-list-group>
 
     <v-menu v-else>
@@ -43,8 +45,10 @@ export default NavLinkGroup;
       padding: 0;
     }
 
-    .nav-link {
-      font-size: 0.8em;
+    .nav-list-group--content {
+      .nav-link {
+        font-size: 0.8em;
+      }
     }
   }
 }

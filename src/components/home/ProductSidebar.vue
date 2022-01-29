@@ -33,7 +33,7 @@ class ProductSidebar extends Vue {
       {
         text: "All DApps",
         icon: "$IconCategory",
-        value: "all",
+        value: "",
       },
       ...items,
     ];

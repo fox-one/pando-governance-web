@@ -21,19 +21,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
+import { GlobalGetters } from "@/store/types";
 
 @Component
 class ProposalResult extends Vue {
+  @Prop() proposal!: API.Proposal;
+
   get items() {
+    const getAppById = this.$store.getters[GlobalGetters.GET_APP_BY_ID];
+    const app = getAppById(this.proposal.app_id);
+    const memberCount = app?.members.length ?? 0;
+    const voteCount = this.proposal.votes.length;
+
     return [
       {
         title: "Agree",
-        value: 12,
+        value: voteCount,
       },
       {
         title: "Not voted",
-        value: 8,
+        value: memberCount - voteCount,
       },
     ];
   }

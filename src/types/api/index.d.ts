@@ -1,20 +1,19 @@
 declare namespace API {
-  export interface Pagination {
-    has_next: boolean;
-    next_cursor: string;
-  }
-
   export interface GetProposalsParams {
     limit: number;
-    cursor: string;
+    offset: string;
   }
 
   export interface GetProposalsResponse {
     ts: string;
     data: {
-      pagination: Pagination;
       proposals: Proposal[];
     };
+  }
+
+  export interface GetProposalResponse {
+    ts: string;
+    data: Proposal;
   }
 
   export interface Asset {
@@ -43,7 +42,7 @@ declare namespace API {
     asset_id: string;
     asset: Asset;
     created_at: string;
-    creator: string;
+    creator: User;
     data: string;
     id: string;
     items: [

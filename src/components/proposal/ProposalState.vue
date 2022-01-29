@@ -11,9 +11,12 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 class ProposalState extends Vue {
   @Prop() state;
 
+  @Prop({ type: Boolean, default: false }) small!: boolean;
+
   get classes() {
     return {
       "proposal-state": true,
+      "proposal-state--small": this.small,
       [`proposal-state--${this.state}`]: true,
     };
   }
@@ -38,6 +41,11 @@ export default ProposalState;
   &--passed {
     color: #63a8b8;
     background: #f2f9fb;
+  }
+
+  &--small {
+    font-size: 12px;
+    line-height: 12px;
   }
 }
 

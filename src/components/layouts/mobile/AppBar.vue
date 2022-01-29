@@ -1,5 +1,5 @@
 <template>
-  <f-app-bar flat height="56">
+  <f-app-bar app flat height="56">
     <v-icon @click="$emit('toggle')">
       $FIconMenu
     </v-icon>

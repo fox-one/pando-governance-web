@@ -1,5 +1,5 @@
 <template>
-  <v-footer app class="app-footer">
+  <v-footer class="app-footer">
     <v-container>
       <v-layout>
         <div>

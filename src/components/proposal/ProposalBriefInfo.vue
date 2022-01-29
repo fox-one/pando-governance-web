@@ -1,40 +1,60 @@
 <template>
-  <div class="brief-info">
+  <div class="brief-info sticky-top">
     <div class="brief-info__title">
       Proposal Info
     </div>
     <div class="divider"></div>
     <div class="brief-info__items">
-      <v-layout v-for="(item, index) in items" :key="index" class="brief-info__item">
+      <v-layout v-for="(item, index) in items" :key="index" align-center class="brief-info__item">
         <v-flex class="item-title">{{ item.title }}</v-flex>
-        <span class="item-value">{{ item.value }}</span>
+        <span class="item-value">
+          <v-avatar v-if="item.logo" :size="16" class="mr-1">
+            <v-img :src="item.logo" />
+          </v-avatar>
+
+          <f-render :nodes="item.value" />
+        </span>
       </v-layout>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
+import ProposalState from "./ProposalState.vue";
+import { GlobalGetters } from "@/store/types";
 
-@Component
+@Component({
+  components: {
+    ProposalState,
+  },
+})
 class ProposalBriefInfo extends Vue {
+  @Prop() proposal!: API.Proposal;
+
   get items() {
+    const proposal = this.proposal;
+    const getAppById = this.$store.getters[GlobalGetters.GET_APP_BY_ID];
+    const app = getAppById(this.proposal.app_id);
+
     return [
       {
         title: "Dapp",
-        value: "4swap",
+        value: app?.name ?? "",
+        logo: app?.avatar ?? "",
       },
       {
         title: "State",
-        value: "Active",
+        value: this.$createElement(ProposalState, { props: { state: proposal.status, small: true } }),
       },
       {
         title: "Author",
-        value: "Node #1: 3354687665",
+        value: proposal.creator.name,
+        logo: proposal.creator.avatar,
       },
       {
         title: "Date",
-        value: "Dec 27,2021,12:00 PM",
+        value: this.$utils.time.format(proposal.created_at),
       },
     ];
   }
@@ -68,6 +88,9 @@ export default ProposalBriefInfo;
       font-weight: 500;
       font-size: 14px;
       line-height: 17px;
+      display: flex;
+      align-items: center;
+      word-break: break-all;
     }
   }
 

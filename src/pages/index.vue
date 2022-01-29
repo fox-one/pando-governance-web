@@ -17,7 +17,7 @@
       </div>
 
       <v-flex class="home-list">
-        <proposal-list />
+        <proposal-list :current="currentTab" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -37,7 +37,7 @@ import ProposalList from "@/components/proposal/ProposalList.vue";
   },
 })
 class IndexPage extends Vue {
-  currentTab = "all";
+  currentTab = "";
 
   get isMobile() {
     return this.$vuetify.breakpoint.mobile;

@@ -7,6 +7,7 @@ import { API_BASE } from "@/constants";
 declare module "vue/types/vue" {
   interface Vue {
     $utils: typeof utils;
+    $apis: ReturnType<typeof createHttpService>;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <v-footer app class="app-footer">
+  <v-footer absolute class="app-footer">
     <v-container class="text-center">
       <contacts />
 

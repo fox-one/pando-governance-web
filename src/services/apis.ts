@@ -10,8 +10,8 @@ export default function(http: Http) {
       return http.get("/proposals", { params });
     },
 
-    getProposal(id: string): Promise<API.Proposal> {
-      return http.get(`/proposal/${id}`);
+    getProposal(id: string): Promise<API.GetProposalResponse> {
+      return http.get(`/proposals/${id}`);
     },
   };
 }

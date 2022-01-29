@@ -1,7 +1,7 @@
 declare namespace State {
   export interface Proposal {
     proposals: API.Proposal[];
-    pagination: API.Pagination;
+    hasNext: boolean;
   }
 
   export interface App {
@@ -9,6 +9,10 @@ declare namespace State {
     settings: {
       dark: boolean;
     };
+  }
+
+  export interface Apps {
+    apps: API.App[];
   }
 
   export interface Auth {

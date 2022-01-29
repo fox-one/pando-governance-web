@@ -14,3 +14,12 @@ a {
     padding: 32px !important;
   }
 }
+
+.sticky-top {
+  position: sticky;
+  top: 56px;
+}
+
+.desktop-layout .sticky-top {
+  top: 96px;
+}

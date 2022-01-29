@@ -1,6 +1,7 @@
 import { prefix as AppPrefix, MutationTypes as AppMutationTypes } from "./modules/app/types";
 import {
   prefix as AppsPrefix,
+  GetterTypes as AppsGetterTypes,
   MutationTypes as AppsMutationTypes,
   ActionTypes as AppsActionTypes,
 } from "./modules/apps/types";
@@ -39,4 +40,5 @@ export const GlobalActions = {
 
 export const GlobalGetters = {
   ...getGlobalTypes(AuthGetterTypes, AuthPrefix),
+  ...getGlobalTypes(AppsGetterTypes, AppsPrefix),
 };

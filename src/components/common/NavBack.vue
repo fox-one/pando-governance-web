@@ -1,9 +1,11 @@
 <template>
-  <span class="nav-back" @click="handleBack">
-    <v-icon size="16">
-      $FIconChevronLeft4PBold
-    </v-icon>
-  </span>
+  <f-panel tile padding="0" class="nav-back-wrapper">
+    <span class="nav-back" @click="handleBack">
+      <v-icon size="16">
+        $FIconChevronLeft4PBold
+      </v-icon>
+    </span>
+  </f-panel>
 </template>
 
 <script lang="ts">
@@ -28,5 +30,9 @@ export default NavBack;
   height: 32px;
   border-radius: 8px;
   background: var(--v-greyscale_6-base);
+}
+
+.nav-back-wrapper {
+  z-index: 111;
 }
 </style>

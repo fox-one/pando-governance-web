@@ -14,6 +14,9 @@
         class="history-table"
       >
         <template #[`item.node`]="{ item }">
+          <v-avatar v-if="item.logo" :size="16">
+            <v-img :src="item.logo" />
+          </v-avatar>
           <span class="node-field">{{ item.node }}</span>
         </template>
         <template #[`item.option`]="{ item }">
@@ -25,10 +28,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { GlobalGetters } from "@/store/types";
 
 @Component
 class ProposalVoteHistory extends Vue {
+  @Prop() proposal!: API.Proposal;
+
   get headers() {
     return [
       {
@@ -46,32 +52,26 @@ class ProposalVoteHistory extends Vue {
   }
 
   get items() {
-    return [
-      {
-        node: "lehigh-2.hotot.org:7239",
-        option: "Agreed",
-      },
-      {
-        node: "lehigh-2.hotot.org:7239",
-        option: "Agreed",
-      },
-      {
-        node: "lehigh-2.hotot.org:7239",
-        option: "Agreed",
-      },
-      {
-        node: "lehigh-2.hotot.org:7239",
-        option: "Agreed",
-      },
-      {
-        node: "lehigh-2.hotot.org:7239",
-        option: "Agreed",
-      },
-      {
-        node: "lehigh-2.hotot.org:7239",
-        option: "Agreed",
-      },
-    ];
+    const getAppById = this.$store.getters[GlobalGetters.GET_APP_BY_ID];
+    const app: API.App = getAppById(this.proposal.app_id);
+    const votes = this.proposal.votes;
+
+    return app.members
+      .map((x) => {
+        const isVoted = votes.findIndex((v) => v.id === x.id) > -1;
+
+        return {
+          isVoted,
+          logo: x.avatar,
+          node: x.name,
+          option: isVoted ? "Agreed" : "Not Vote",
+        };
+      })
+      .sort((a, b) => {
+        const getIndex = (x) => (x.isVoted ? 0 : 1);
+
+        return getIndex(a) > getIndex(b) ? 1 : -1;
+      });
   }
 }
 export default ProposalVoteHistory;
