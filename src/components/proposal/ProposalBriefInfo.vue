@@ -45,7 +45,9 @@ class ProposalBriefInfo extends Vue {
       },
       {
         title: this.$t("state"),
-        value: this.$createElement(ProposalState, { props: { state: proposal.status, small: true } }),
+        value: this.$createElement(ProposalState, {
+          props: { state: proposal.status, small: true },
+        }),
       },
       {
         title: this.$t("author"),

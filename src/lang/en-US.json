@@ -12,6 +12,7 @@
   "document": "Document",
   "empty": "Empty",
   "error": "Something Error",
+  "governance": "Governance",
   "history": "History",
   "node": "Node",
   "not-found": "Not Found",
@@ -20,7 +21,7 @@
   "passed": "Passed",
   "proposal.info": "Proposal Info",
   "results": "Results",
-  "slogn": "Welcome to check Pando governance",
+  "slogn": "Welcome to Pando governance",
   "state": "State",
   "team": "Team"
 }

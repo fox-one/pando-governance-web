@@ -103,6 +103,11 @@ export default ProposalVoteHistory;
       font-size: 12px;
       line-height: 15px;
       height: 32px;
+      color: var(--v-greyscale_3-base);
+    }
+
+    > .v-data-table__wrapper > table > tbody > tr {
+      background: none !important;
     }
   }
 }

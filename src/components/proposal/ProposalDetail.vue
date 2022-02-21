@@ -8,7 +8,7 @@
       <div v-for="(item, index) in items" :key="index" class="proposal-item">
         <span class="item-title">{{ item.title }}:</span>
         <span class="item-value">{{ item.value }}</span>
-        <v-chip v-if="item.hint" small color="primary" class="item-hint" @click="handleAction(item)">
+        <v-chip v-if="item.hint" small color="greyscale_6" class="item-hint" @click="handleAction(item)">
           {{ item.hint }}
           <v-icon v-if="item.action" size="12" class="ml-2">$FIconUpRight3PFill</v-icon>
         </v-chip>
@@ -75,6 +75,7 @@ export default ProposalDetail;
 
     .item-hint {
       font-size: 12px;
+      border-radius: 4px !important;
     }
   }
 }

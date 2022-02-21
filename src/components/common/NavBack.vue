@@ -2,7 +2,7 @@
   <f-panel tile padding="0" class="nav-back-wrapper">
     <span class="nav-back" @click="handleBack">
       <v-icon size="16">
-        $FIconChevronLeft4PBold
+        $FIconChevronLeft4P
       </v-icon>
     </span>
   </f-panel>
@@ -33,6 +33,6 @@ export default NavBack;
 }
 
 .nav-back-wrapper {
-  z-index: 111;
+  z-index: 5;
 }
 </style>

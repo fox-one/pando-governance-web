@@ -12,14 +12,16 @@
 
     <v-layout class="home-content">
       <div v-if="isMobile" class="home-tabs">
-        <product-tabs :current="currentTab" />
+        <product-tabs :current.sync="currentTab" :current-kind.sync="currentKind" />
       </div>
       <div v-else class="home-sidebar">
-        <product-sidebar :current.sync="currentTab" />
+        <product-sidebar :current.sync="currentTab" :current-kind.sync="currentKind" />
       </div>
 
       <v-flex class="home-list">
-        <proposal-list :current="currentTab" />
+        <proposal-kinds :current-tab="currentTab" :current-kind.sync="currentKind" />
+        <proposal-list v-if="isProposalList" :current="currentTab" />
+        <member-list v-else :current-tab="currentTab" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -30,16 +32,26 @@ import { Component, Vue } from "vue-property-decorator";
 import ProductSidebar from "@/components/home/ProductSidebar.vue";
 import ProductTabs from "@/components/home/ProductTabs.vue";
 import ProposalList from "@/components/proposal/ProposalList.vue";
+import ProposalKinds from "@/components/proposal/ProposalKinds.vue";
+import MemberList from "@/components/proposal/MemberList.vue";
 
 @Component({
   components: {
     ProductSidebar,
     ProductTabs,
     ProposalList,
+    ProposalKinds,
+    MemberList,
   },
 })
 class IndexPage extends Vue {
-  currentTab = "";
+  currentTab = "all";
+
+  currentKind = "proposals";
+
+  get isProposalList() {
+    return this.currentKind === "proposals";
+  }
 
   get isMobile() {
     return this.$vuetify.breakpoint.mobile;

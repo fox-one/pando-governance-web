@@ -7,40 +7,41 @@
       :class="[{ 'product-item--active': item.value === current }]"
       @click="handleSelect(item)"
     >
-      <v-icon v-if="item.icon" class="mr-4">{{ item.icon }}</v-icon>
-      <v-avatar v-if="item.logo" :size="24" class="mr-4">
+      <v-icon v-if="item.icon" :size="20" class="mr-4">{{ item.icon }}</v-icon>
+      <v-avatar v-if="item.logo" :size="20" class="mr-4">
         <v-img :src="item.logo" />
       </v-avatar>
       <span>{{ item.text }}</span>
+      <active-counts :counts="item.activeCounts" class="ml-4" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, PropSync } from "vue-property-decorator";
+import { getProductItems } from "./ProductTabs.vue";
+import ActiveCounts from "./ActiveCounts.vue";
 
-@Component
+@Component({
+  components: {
+    ActiveCounts,
+  },
+})
 class ProductSidebar extends Vue {
   @PropSync("current") bindCurrent;
 
-  get items() {
-    const apps = this.$store.state.apps.apps;
-    const items = apps.map((x) => {
-      return { text: x.name, logo: x.avatar, value: x.id };
-    });
+  @PropSync("currentKind") bindCurrentKind;
 
-    return [
-      {
-        text: this.$t("apps.all"),
-        icon: "$IconCategory",
-        value: "",
-      },
-      ...items,
-    ];
+  get items() {
+    return getProductItems(this, false);
   }
 
   handleSelect(item) {
     this.bindCurrent = item.value;
+
+    if (item.value === "all") {
+      this.bindCurrentKind = "proposals";
+    }
   }
 }
 export default ProductSidebar;
@@ -63,6 +64,7 @@ export default ProductSidebar;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  color: var(--v-greyscale_2-base);
 
   &::after {
     content: "";
@@ -77,6 +79,7 @@ export default ProductSidebar;
 
 .product-item.product-item--active {
   background: var(--v-greyscale_6-base);
+  color: var(--v-greyscale_1-base);
   font-weight: 600;
 
   &::after {

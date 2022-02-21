@@ -1,9 +1,6 @@
 <template>
   <div>
-    <v-list-group v-if="isMobile" :ripple="false" class="nav-list-group">
-      <template #appendIcon>
-        <v-icon size="16">$FIconChevronDown4PBold</v-icon>
-      </template>
+    <v-list-group v-if="isMobile" :ripple="false" append-icon class="nav-list-group">
       <template #activator>
         <slot name="activator" />
       </template>
@@ -15,9 +12,8 @@
 
     <v-menu v-else>
       <template #activator="{ on }">
-        <div class="menu-activator ">
+        <div class="menu-activator">
           <slot name="activator" :on="on" />
-          <v-icon size="12" color="greyscale_3">$IconCollapse</v-icon>
         </div>
       </template>
 
@@ -43,11 +39,10 @@ export default NavLinkGroup;
   ::v-deep {
     .v-list-group__header {
       padding: 0;
-    }
+      min-height: auto;
 
-    .nav-list-group--content {
-      .nav-link {
-        font-size: 0.8em;
+      &::before {
+        display: none;
       }
     }
   }

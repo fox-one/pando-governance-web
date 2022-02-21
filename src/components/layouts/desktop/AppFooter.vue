@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="app-footer">
+  <v-footer v-if="show" class="app-footer">
     <v-container>
       <v-layout>
         <div>
@@ -26,8 +26,12 @@ import Contacts from "../partial/Contacts.vue";
     Contacts,
   },
 })
-class AppBar extends Vue {}
-export default AppBar;
+class AppFooter extends Vue {
+  get show() {
+    return this.$route.name === "index";
+  }
+}
+export default AppFooter;
 </script>
 
 <style lang="scss" scoped>

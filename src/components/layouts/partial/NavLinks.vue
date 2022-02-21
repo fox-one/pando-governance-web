@@ -1,21 +1,25 @@
 <template>
-  <v-list class="nav-links">
+  <v-list class="nav-links" :class="{ 'nav-links--mobile': isMobile }">
     <template v-for="(link, index) in links">
       <nav-link-group v-if="link.items" :key="index">
         <template #activator="{ on }">
-          <div v-on="on" class="nav-link">{{ link.title }}</div>
+          <div v-on="on">
+            <nav-link :nav="link">
+              <template #append>
+                <v-icon size="12" color="greyscale_3">$IconCollapse</v-icon>
+              </template>
+            </nav-link>
+          </div>
         </template>
 
         <f-panel padding="0">
-          <div v-for="(item, index2) in link.items" :ripple="false" :key="index2" class="nav-link">
-            {{ item.title }}
-          </div>
+          <nav-link v-for="(item, index2) in link.items" :key="index2" :nav="item" />
         </f-panel>
       </nav-link-group>
 
-      <div v-else class="nav-link">
-        {{ link.title }}
-      </div>
+      <f-divider v-else-if="link === 'divider'" class="my-4" />
+
+      <nav-link v-else :nav="link" />
     </template>
   </v-list>
 </template>
@@ -24,11 +28,13 @@
 import { Component, Vue } from "vue-property-decorator";
 import { VMenu, VListGroup } from "vuetify/lib";
 import NavLinkGroup from "./NavLinkGroup.vue";
+import NavLink from "./NavLink.vue";
 
 @Component({
   components: {
     VMenu,
     VListGroup,
+    NavLink,
     NavLinkGroup,
   },
 })
@@ -40,39 +46,36 @@ class NavLinks extends Vue {
         items: [
           {
             title: "Pando Rings",
-            href: "",
+            href: "https://rings.pando.im/",
           },
           {
             title: "Pando Leaf",
-            href: "",
+            href: "https://leaf.pando.im/",
           },
           {
             title: "Pando Lake",
-            href: "",
+            href: "https://lake.pando.im/",
           },
           {
             title: "Fennec",
-            href: "",
+            href: "https://pando.im/fennec",
           },
         ],
       },
+      this.isMobile && "divider",
       {
         title: this.$t("developers"),
-        href: "",
+        href: "https://docs.pando.im/",
       },
       {
-        title: this.$t("dao"),
-        href: "",
+        title: this.$t("governance"),
+        active: true,
       },
-    ];
+    ].filter((v) => !!v);
   }
 
   get isMobile() {
     return this.$vuetify.breakpoint.mobile;
-  }
-
-  get wrapper() {
-    return this.isMobile ? "v-list-group" : "v-menu";
   }
 }
 export default NavLinks;
@@ -89,22 +92,9 @@ export default NavLinks;
   }
 }
 
-.nav-link {
-  flex: 1;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  padding: 8px;
-  margin: 8px;
-  cursor: pointer;
-  color: var(--v-greyscale_3-base);
-
-  &:hover {
-    color: var(--v-greyscale_1-base);
+.nav-links--mobile {
+  .nav-link {
+    padding: 16px 0;
   }
-}
-
-.nav-link--active {
-  color: var(--v-greyscale_1-base);
 }
 </style>

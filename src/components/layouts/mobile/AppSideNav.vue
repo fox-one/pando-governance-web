@@ -1,6 +1,6 @@
 <template>
-  <v-navigation-drawer app v-bind="$attrs" v-on="$listeners">
-    <div class="pa-4">
+  <v-navigation-drawer app v-bind="$attrs" v-on="$listeners" overlay-opacity="0.8" overlay-color="#000000">
+    <div class="pa-10">
       <v-icon size="32">$IconPandoLogo</v-icon>
 
       <nav-links />

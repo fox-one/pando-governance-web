@@ -14,7 +14,6 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import ProposalItem from "./ProposalItem.vue";
-import { getProposalStatusMeta } from "@/enums";
 import ListWapper from "@/components/common/ListWarpper.vue";
 import { GlobalActions } from "~/store/types";
 
@@ -37,7 +36,6 @@ class ProposalList extends Vue {
 
     return proposals.map((x) => {
       const app = apps.find((app) => app.id === x.app_id);
-      const statusMeta = getProposalStatusMeta(x.status);
 
       return {
         id: x.id,
@@ -45,7 +43,7 @@ class ProposalList extends Vue {
         time: this.$utils.time.toRelative(x.created_at),
         product: app?.name ?? "",
         logo: app?.avatar ?? "",
-        state: this.$t(statusMeta.text),
+        state: x.status,
       };
     });
   }
@@ -61,6 +59,7 @@ class ProposalList extends Vue {
     }
 
     this.loading = true;
+    this.error = false;
 
     try {
       await this.$store.dispatch(GlobalActions.LOAD_PROPOSALS, { reload, app_id: this.current });

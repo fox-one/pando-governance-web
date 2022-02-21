@@ -1,9 +1,9 @@
 <template>
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="9" height="9" rx="4.5" :fill="colors[0]" />
-    <rect y="11" width="9" height="9" rx="4.5" :fill="colors[0]" />
-    <rect x="11" width="9" height="9" rx="4.5" :fill="colors[0]" />
-    <rect x="11" y="11" width="9" height="9" rx="4.5" :fill="colors[0]" />
+    <rect x="1" y="1" width="8" height="8" rx="4" fill="#CCCCCC" />
+    <rect x="1" y="11" width="8" height="8" rx="4" fill="#CCCCCC" />
+    <rect x="11" y="1" width="8" height="8" rx="4" fill="#CCCCCC" />
+    <rect x="11" y="11" width="8" height="8" rx="4" fill="#CCCCCC" />
   </svg>
 </template>
 
