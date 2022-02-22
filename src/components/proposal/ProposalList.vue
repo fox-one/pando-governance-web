@@ -62,7 +62,9 @@ class ProposalList extends Vue {
     this.error = false;
 
     try {
-      await this.$store.dispatch(GlobalActions.LOAD_PROPOSALS, { reload, app_id: this.current });
+      const appId = this.current === "all" ? "" : this.current;
+
+      await this.$store.dispatch(GlobalActions.LOAD_PROPOSALS, { reload, app_id: appId });
     } catch (error) {
       this.error = true;
       this.$utils.helper.errorHandler(this, error);

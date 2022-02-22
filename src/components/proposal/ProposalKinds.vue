@@ -5,6 +5,7 @@
       :index="index"
       :text="kind.text"
       :active="kind.value === bindCurrentKind"
+      :key="index"
       @click.native="handleSelect(kind)"
     />
   </div>
