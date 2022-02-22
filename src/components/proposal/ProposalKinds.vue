@@ -46,11 +46,11 @@ class ProposalKinds extends Vue {
 
     return [
       {
-        text: `${proposalCounts} Proposals`,
+        text: `${proposalCounts} ` + this.$t("proposals"),
         value: "proposals",
       },
       {
-        text: `${nodeCounts} Nodes`,
+        text: `${nodeCounts} ` + this.$t("nodes"),
         value: "nodes",
       },
     ];

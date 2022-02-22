@@ -28,12 +28,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Mixins } from "vue-property-decorator";
 import ProductSidebar from "@/components/home/ProductSidebar.vue";
 import ProductTabs from "@/components/home/ProductTabs.vue";
 import ProposalList from "@/components/proposal/ProposalList.vue";
 import ProposalKinds from "@/components/proposal/ProposalKinds.vue";
 import MemberList from "@/components/proposal/MemberList.vue";
+import mixins from "@/mixins";
 
 @Component({
   components: {
@@ -44,7 +45,7 @@ import MemberList from "@/components/proposal/MemberList.vue";
     MemberList,
   },
 })
-class IndexPage extends Vue {
+class IndexPage extends Mixins(mixins.Page) {
   currentTab = "all";
 
   currentKind = "proposals";

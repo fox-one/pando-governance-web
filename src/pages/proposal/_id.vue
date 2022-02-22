@@ -22,13 +22,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Mixins } from "vue-property-decorator";
 import ProposalBriefInfo from "@/components/proposal/ProposalBriefInfo.vue";
 import ProposalResult from "@/components/proposal/ProposalResult.vue";
 import ProposalVoteHistory from "@/components/proposal/ProposalVoteHistory.vue";
 import ProposalDetail from "@/components/proposal/ProposalDetail.vue";
 import ProposalDetailPageLayout from "@/components/proposal/ProposalDetailPageLayout.vue";
 import NavBack from "@/components/common/NavBack.vue";
+import mixins from "@/mixins";
 
 @Component({
   components: {
@@ -40,7 +41,7 @@ import NavBack from "@/components/common/NavBack.vue";
     ProposalDetailPageLayout,
   },
 })
-class ProposalDetailPage extends Vue {
+class ProposalDetailPage extends Mixins(mixins.Page) {
   loading = false;
 
   proposal: API.Proposal | null = null;
