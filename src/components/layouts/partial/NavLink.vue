@@ -30,6 +30,7 @@ export default NavLink;
   padding: 16px;
   cursor: pointer;
   color: var(--v-greyscale_3-base);
+  white-space: nowrap;
 
   &:hover {
     color: var(--v-greyscale_1-base);

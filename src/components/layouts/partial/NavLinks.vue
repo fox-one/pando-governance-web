@@ -42,7 +42,7 @@ class NavLinks extends Vue {
   get links() {
     return [
       {
-        title: "Products",
+        title: this.$t("products"),
         items: [
           {
             title: "Pando Rings",

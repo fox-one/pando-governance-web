@@ -77,6 +77,10 @@ export default ProposalDetail;
       font-size: 12px;
       border-radius: 4px !important;
     }
+
+    .item-value {
+      word-break: break-all;
+    }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <f-app-bar app custom-content flat height="96">
-    <v-icon size="32">$IconPandoLogo</v-icon>
+    <v-icon size="32" @click="handleClick">$IconPandoLogo</v-icon>
     <v-spacer />
     <nav-links />
   </f-app-bar>
@@ -15,7 +15,11 @@ import NavLinks from "../partial/NavLinks.vue";
     NavLinks,
   },
 })
-class AppBar extends Vue {}
+class AppBar extends Vue {
+  handleClick() {
+    this.$router.push({ name: "index" });
+  }
+}
 export default AppBar;
 </script>
 
