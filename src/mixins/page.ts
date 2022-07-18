@@ -1,7 +1,8 @@
 import Vue from "vue";
 import dayjs from "dayjs";
-import { Component } from "vue-property-decorator";
+import { Component, Watch } from "vue-property-decorator";
 import { getLocale } from "@foxone/utils/helper";
+import { GlobalMutations } from "@/store/types";
 
 export interface Page extends Vue {
   title: string;
@@ -49,9 +50,15 @@ export default class PageView extends Vue {
     document.title = this.title as string;
   }
 
+  @Watch("title")
   setPageConfig() {
     const defaultThemeColor = this.$vuetify.theme.dark ? "#000000" : "#ffffff";
     const color = (this.appbar as any).color || defaultThemeColor;
+
+    this.$store.commit(GlobalMutations.SET_APPBAR, {
+      title: this.title,
+      ...this.appbar,
+    });
 
     setTimeout(() => {
       this.$utils.mixin.setMixinTheme(color);

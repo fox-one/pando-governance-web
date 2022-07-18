@@ -1,6 +1,7 @@
 <template>
   <div class="desktop-layout">
-    <app-bar />
+    <app-bar-home v-if="isHome" />
+    <app-bar-common v-else />
 
     <v-main>
       <nuxt />
@@ -12,15 +13,21 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import AppBar from "./AppBar.vue";
+import AppBarHome from "./AppBarHome.vue";
+import AppBarCommon from "./AppBarCommon.vue";
 import AppFooter from "./AppFooter.vue";
 
 @Component({
   components: {
-    AppBar,
+    AppBarHome,
+    AppBarCommon,
     AppFooter,
   },
 })
-class DesktopLayout extends Vue {}
+class DesktopLayout extends Vue {
+  get isHome() {
+    return this.$route.name === "index";
+  }
+}
 export default DesktopLayout;
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div class="mobile-layout">
-    <app-bar @toggle="handleToggle" />
+    <app-bar-home v-if="isHome" @toggle="handleToggle" />
+    <app-bar-common v-else />
 
     <app-side-nav v-model="nav" />
 
@@ -14,19 +15,25 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import AppBar from "./AppBar.vue";
+import AppBarHome from "./AppBarHome.vue";
+import AppBarCommon from "./AppBarCommon.vue";
 import AppFooter from "./AppFooter.vue";
 import AppSideNav from "./AppSideNav.vue";
 
 @Component({
   components: {
-    AppBar,
+    AppBarHome,
+    AppBarCommon,
     AppFooter,
     AppSideNav,
   },
 })
 class MobileLayout extends Vue {
   nav = false;
+
+  get isHome() {
+    return this.$route.name === "index";
+  }
 
   handleToggle() {
     this.nav = !this.nav;

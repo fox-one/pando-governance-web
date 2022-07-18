@@ -8,17 +8,23 @@
       :key="index"
       @click.native="handleSelect(kind)"
     />
+
+    <v-spacer />
+
+    <proposal-actions :current-tab="currentTab" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, PropSync, Vue } from "vue-property-decorator";
 import ProposalKindItem from "./ProposalKindItem.vue";
+import ProposalActions from "./ProposalActions.vue";
 import { GlobalGetters } from "@/store/types";
 
 @Component({
   components: {
     ProposalKindItem,
+    ProposalActions,
   },
 })
 class ProposalKinds extends Vue {
@@ -69,15 +75,27 @@ export default ProposalKinds;
   align-items: center;
   margin-bottom: 32px;
 
-  &--mobile {
-    margin-top: 16px;
+  ::v-deep {
+    .gover-btn {
+      padding: 16px 24px !important;
+      border-radius: 8px !important;
+      font-weight: 500 !important;
+      font-size: 14px !important;
+      line-height: 17px !important;
+      height: auto !important;
+    }
+  }
+}
 
-    ::v-deep {
-      .proposal-kind-item {
-        font-size: 12px;
-        line-height: 15px;
-        padding: 10px 12px;
-      }
+.proposal-kinds.proposal-kinds--mobile {
+  margin-top: 16px;
+
+  ::v-deep {
+    .proposal-kind-item,
+    .gover-btn {
+      font-size: 12px !important;
+      line-height: 15px !important;
+      padding: 10px 12px !important;
     }
   }
 }

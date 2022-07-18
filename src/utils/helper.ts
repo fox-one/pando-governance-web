@@ -8,5 +8,5 @@ export function errorHandler(vm: Vue, error: any) {
 
   const message = error.message || error.msg || locale || "Unknown Error";
 
-  vm.$uikit.toast.error({ message: `${code} ${message}` });
+  vm.$uikit.toast.error({ message });
 }

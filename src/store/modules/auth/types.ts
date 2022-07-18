@@ -8,4 +8,9 @@ export const GetterTypes = {
 export const MutationTypes = {
   SET_OAUTH_INFO: "SET_OAUTH_INFO",
   CLEAR_AUTH: "CLEAR",
+  SET_PROFILE: "SET_PROFILE",
+};
+
+export const ActionTypes = {
+  LOAD_PROFILE: "LOAD_PROFILE",
 };

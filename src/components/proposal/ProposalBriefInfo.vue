@@ -3,7 +3,6 @@
     <div class="brief-info__title">
       {{ $t("proposal.info") }}
     </div>
-    <div class="divider"></div>
     <div class="brief-info__items">
       <v-layout v-for="(item, index) in items" :key="index" align-center class="brief-info__item">
         <v-flex class="item-title">{{ item.title }}</v-flex>
@@ -66,7 +65,7 @@ export default ProposalBriefInfo;
 
 <style lang="scss" scoped>
 .brief-info {
-  border: 1px solid var(--v-greyscale_5-base);
+  background: var(--v-greyscale_6-base);
   border-radius: 8px;
 
   &__title {

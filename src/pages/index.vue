@@ -35,6 +35,7 @@ import ProposalList from "@/components/proposal/ProposalList.vue";
 import ProposalKinds from "@/components/proposal/ProposalKinds.vue";
 import MemberList from "@/components/proposal/MemberList.vue";
 import mixins from "@/mixins";
+import { Sync } from "vuex-pathify";
 
 @Component({
   components: {
@@ -46,9 +47,9 @@ import mixins from "@/mixins";
   },
 })
 class IndexPage extends Mixins(mixins.Page) {
-  currentTab = "all";
+  @Sync("page/index@currentTab") currentTab!: string;
 
-  currentKind = "proposals";
+  @Sync("page/index@currentKind") currentKind!: string;
 
   get isProposalList() {
     return this.currentKind === "proposals";
@@ -86,7 +87,7 @@ export default IndexPage;
 }
 
 .home-content {
-  margin-top: 64px;
+  margin-top: 96px;
 }
 
 .home-list {

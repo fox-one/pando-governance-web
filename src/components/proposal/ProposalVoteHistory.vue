@@ -79,11 +79,10 @@ export default ProposalVoteHistory;
 
 <style lang="scss" scoped>
 .vote-history {
-  border: 1px solid var(--v-greyscale_5-base);
   border-radius: 8px;
 
   &__title {
-    padding: 24px;
+    padding: 24px 0;
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
@@ -92,6 +91,17 @@ export default ProposalVoteHistory;
 
 .history-table {
   ::v-deep {
+    th,
+    td {
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
     td {
       border: none !important;
     }

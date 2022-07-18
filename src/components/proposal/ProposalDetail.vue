@@ -1,17 +1,12 @@
 <template>
   <div class="proposal-details">
-    <div class="proposal-title mb-4">
-      {{ meta.title }}
-    </div>
-
     <div class="proposal-items">
       <div v-for="(item, index) in items" :key="index" class="proposal-item">
         <span class="item-title">{{ item.title }}:</span>
         <span class="item-value">{{ item.value }}</span>
-        <v-chip v-if="item.hint" small color="greyscale_6" class="item-hint" @click="handleAction(item)">
+        <span v-if="item.hint" class="item-hint" @click="handleAction(item)">
           {{ item.hint }}
-          <v-icon v-if="item.action" size="12" class="ml-2">$FIconUpRight3PFill</v-icon>
-        </v-chip>
+        </span>
       </div>
     </div>
   </div>
@@ -74,8 +69,11 @@ export default ProposalDetail;
     margin-bottom: 24px;
 
     .item-hint {
-      font-size: 12px;
-      border-radius: 4px !important;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-decoration-line: underline;
+      cursor: pointer;
     }
 
     .item-value {

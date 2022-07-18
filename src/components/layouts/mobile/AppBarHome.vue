@@ -10,6 +10,6 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-class AppBar extends Vue {}
-export default AppBar;
+class AppBarHome extends Vue {}
+export default AppBarHome;
 </script>

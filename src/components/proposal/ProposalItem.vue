@@ -3,14 +3,11 @@
     <v-flex>
       <div class="proposal-item__title">{{ proposal.title }}</div>
       <div class="mt-3 proposal-item__subtitle">
+        <proposal-state :state="proposal.state" />
         <span>{{ proposal.time }}</span>
         <span>{{ proposal.product }}</span>
       </div>
     </v-flex>
-
-    <div>
-      <proposal-state :state="proposal.state" />
-    </div>
   </v-layout>
 </template>
 
@@ -31,7 +28,7 @@ export default ProposalItem;
 
 <style lang="scss" scoped>
 .proposal-item {
-  padding: 32px 0;
+  padding: 24px 0;
   border-bottom: 1px solid var(--v-greyscale_5-base);
   cursor: pointer;
 
@@ -40,9 +37,9 @@ export default ProposalItem;
   }
 
   &__title {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
   }
 
   &__subtitle {
@@ -66,7 +63,7 @@ export default ProposalItem;
     align-items: center;
 
     &__title {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 16px;
       line-height: 19px;
     }

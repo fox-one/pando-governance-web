@@ -56,7 +56,7 @@ export default ProductSidebar;
 .product-item {
   display: flex;
   align-items: center;
-  padding: 32px;
+  padding: 24px;
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;

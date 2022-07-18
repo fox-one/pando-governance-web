@@ -4,8 +4,6 @@
       {{ $t("results") }}
     </div>
 
-    <div class="divider" />
-
     <div class="result-items">
       <div v-for="(item, index) in items" :key="index" class="result-item">
         <div class="item-value">
@@ -51,7 +49,7 @@ export default ProposalResult;
 
 <style lang="scss" scoped>
 .result {
-  border: 1px solid var(--v-greyscale_5-base);
+  background: var(--v-greyscale_6-base);
   border-radius: 8px;
 
   .divider {

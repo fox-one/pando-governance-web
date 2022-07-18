@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"],
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "swaplp": ["src/pando-protos/swaplp/v1/swaplp.pb"]
     },
     "types": ["nuxt-i18n", "@types/node", "@nuxt/types", "vuetify", "webpack-env"]
   },

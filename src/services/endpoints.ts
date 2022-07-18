@@ -13,5 +13,13 @@ export default function(http: Http) {
     getProposal(id: string): Promise<API.GetProposalResponse> {
       return http.get(`/proposals/${id}`);
     },
+
+    getProfile() {
+      return http.get("https://api.mixin.one/me");
+    },
+
+    getAsset(id: string) {
+      return http.get(`https://api.mixin.one/network/assets/${id}`);
+    },
   };
 }

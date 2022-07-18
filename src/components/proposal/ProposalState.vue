@@ -34,20 +34,18 @@ export default ProposalState;
 <style lang="scss" scoped>
 .proposal-state {
   display: inline-block;
-  font-weight: 500;
-  font-size: 16px;
   line-height: 19px;
-  padding: 6px 10px;
-  border-radius: 8px;
 
   &--active {
     color: #ff681f;
-    background: #ffeee6;
   }
 
   &--passed {
     color: #63a8b8;
-    background: #f2f9fb;
+  }
+
+  &--closed {
+    color: var(--v-greyscale_3-base);
   }
 
   &--small {

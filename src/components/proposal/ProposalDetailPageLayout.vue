@@ -1,10 +1,6 @@
 <template>
   <div class="proposal-detail-layout">
     <div v-if="isMobile">
-      <nav-back class="mb-4 sticky-top pb-2" />
-      <div class="mb-6">
-        <slot name="detail" />
-      </div>
       <div class="mb-6">
         <slot name="brief" />
       </div>
@@ -12,21 +8,24 @@
         <slot name="result" />
       </div>
       <div class="mb-6">
+        <slot name="detail" />
+      </div>
+      <div class="mb-6">
         <slot name="vote" />
       </div>
     </div>
     <v-layout v-else>
-      <div class="left-side">
-        <slot name="brief" />
-      </div>
       <v-flex class="px-8">
         <slot name="detail" />
+        <div class="mt-6">
+          <slot name="vote" />
+        </div>
       </v-flex>
       <div class="right-side">
         <div class="sticky-top">
-          <slot name="result" />
+          <slot name="brief" />
           <div class="mt-6">
-            <slot name="vote" />
+            <slot name="result" />
           </div>
         </div>
       </div>

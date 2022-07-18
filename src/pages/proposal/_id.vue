@@ -4,7 +4,6 @@
     <template v-else>
       <proposal-detail-page-layout v-if="proposal">
         <template #detail>
-          <nav-back v-if="!isMobile" class="mb-4 sticky-top" />
           <proposal-detail :proposal="proposal" />
         </template>
         <template #brief>
@@ -45,6 +44,10 @@ class ProposalDetailPage extends Mixins(mixins.Page) {
   loading = false;
 
   proposal: API.Proposal | null = null;
+
+  get title() {
+    return this.proposal?.title ?? "";
+  }
 
   get id() {
     return this.$route.params.id;

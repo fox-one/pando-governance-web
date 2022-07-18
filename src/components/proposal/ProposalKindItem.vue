@@ -23,13 +23,22 @@ export default ProposalKindItem;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
   cursor: pointer;
+  border: 1px solid var(--v-greyscale_6-base);
+  color: var(--v-greyscale_3-base);
+  margin-left: 8px;
+
+  &:first-child {
+    margin-left: 0;
+  }
 
   &--active {
     background: var(--v-greyscale_6-base);
+    border: 1px solid var(--v-greyscale_6-base);
+    color: var(--v-greyscale_1-base);
   }
 }
 </style>

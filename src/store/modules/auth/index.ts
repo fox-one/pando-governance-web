@@ -1,10 +1,11 @@
-import { MutationTree, GetterTree } from "vuex";
+import { MutationTree, GetterTree, ActionTree } from "vuex";
 import { make } from "vuex-pathify";
-import { GetterTypes, MutationTypes } from "./types";
+import { GetterTypes, MutationTypes, ActionTypes } from "./types";
 
 const state = (): State.Auth => ({
   token: "",
   channel: "",
+  profile: null,
 });
 
 const getters: GetterTree<State.Auth, any> = {
@@ -25,9 +26,18 @@ const mutations: MutationTree<State.Auth> = {
   },
 };
 
+const actions: ActionTree<State.Auth, any> = {
+  async [ActionTypes.LOAD_PROFILE]({ commit }) {
+    const resp = await this.$apis.getProfile();
+
+    commit("SET_PROFILE", resp.data);
+  },
+};
+
 export default {
   namespaced: true,
   getters,
   state,
   mutations,
+  actions,
 };

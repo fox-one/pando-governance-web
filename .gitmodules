@@ -1,0 +1,4 @@
+[submodule "src/pando-protos"]
+	path = src/pando-protos
+	url = git@github.com:fox-one/pando-protos.git
+	branch = swaplp_gen-ts

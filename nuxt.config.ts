@@ -18,7 +18,7 @@ const config: NuxtConfig = {
       {
         hid: "description",
         name: "description",
-        content: "Nuxt typescript template source",
+        content: "Pando governance",
       },
     ],
     link: [
@@ -36,7 +36,7 @@ const config: NuxtConfig = {
   },
   loading: { color: "#fff" },
   css: ["~/styles/index.scss"],
-  plugins: ["~/plugins/property.ts", "~/plugins/libs.ts", "~/plugins/persistedstate.ts"],
+  plugins: ["~/plugins/property.ts", "~/plugins/libs.ts"],
   buildModules: [
     "@nuxtjs/eslint-module",
     [
@@ -69,7 +69,7 @@ const config: NuxtConfig = {
     optionsPath: "./vuetify.options.ts",
   },
   build: {
-    transpile: ["vuetify"],
+    transpile: ["vuetify", "protoscript", "twirpscript"],
   },
   env: {
     TOKEN: process.env.TOKEN || "",

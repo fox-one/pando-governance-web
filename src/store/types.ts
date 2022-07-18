@@ -14,7 +14,13 @@ import {
   prefix as AuthPrefix,
   GetterTypes as AuthGetterTypes,
   MutationTypes as AuthMutationTypes,
+  ActionTypes as AuthActionTypes,
 } from "./modules/auth/types";
+import {
+  prefix as FSwapPrefix,
+  ActionTypes as FSwapActionTypes,
+  MutationTypes as FSwapMutationTypes,
+} from "./modules/4swap/types";
 
 function getGlobalTypes<T>(types: T, prefix: string) {
   return Object.keys(types).reduce(
@@ -31,11 +37,15 @@ export const GlobalMutations = {
   ...getGlobalTypes(AppMutationTypes, AppPrefix),
   ...getGlobalTypes(AppsMutationTypes, AppsPrefix),
   ...getGlobalTypes(AuthMutationTypes, AuthPrefix),
+  ...getGlobalTypes(AuthMutationTypes, AuthPrefix),
+  ...getGlobalTypes(FSwapMutationTypes, FSwapPrefix),
 };
 
 export const GlobalActions = {
   ...getGlobalTypes(ProposalActionTypes, ProposalPrefix),
   ...getGlobalTypes(AppsActionTypes, AppsPrefix),
+  ...getGlobalTypes(FSwapActionTypes, FSwapPrefix),
+  ...getGlobalTypes(AuthActionTypes, AuthPrefix),
 };
 
 export const GlobalGetters = {

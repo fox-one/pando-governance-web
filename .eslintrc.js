@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  ignorePatterns: ["*.pb.[t|j]s"],
   env: {
     node: true,
   },
@@ -22,6 +23,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/explicit-module-boundary-types": ["off"],
     "@typescript-eslint/no-non-null-assertion": ["off"],
+    "@typescript-eslint/no-namespace": ["off"],
     "vue/require-component-is": "off",
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",

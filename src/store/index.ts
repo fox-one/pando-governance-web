@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import pathify from "vuex-pathify";
 import modules from "./modules";
+import createPersistedState from "vuex-persistedstate";
 
 // options
 pathify.options.mapping = "standard";
@@ -12,6 +13,6 @@ export default function() {
 
   return new Vuex.Store({
     modules,
-    plugins: [pathify.plugin],
+    plugins: [pathify.plugin, createPersistedState({ key: "vuex", paths: ["auth"] })],
   });
 }
