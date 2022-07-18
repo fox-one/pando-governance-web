@@ -19,7 +19,7 @@ import mixins from "@/mixins";
 })
 class CreatePoolPage extends Mixins(mixins.Page) {
   get title() {
-    return "!!Create Pool";
+    return this.$t("pool.create") as string;
   }
 }
 export default CreatePoolPage;

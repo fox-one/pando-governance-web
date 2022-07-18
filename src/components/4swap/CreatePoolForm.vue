@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="label">!!Asset 1</div>
+    <div class="label">{{ $t("asset") }} 1</div>
     <f-asset-select :asset="asset1" :assets="meta.selects" @input="handleAsset1Change" />
 
-    <div class="label mt-8">!!Asset 2</div>
+    <div class="label mt-8">{{ $t("asset") }} 2</div>
     <f-asset-select :asset="asset2" :assets="meta.selects" @input="handleAsset2Change" />
 
     <create-pool-order-info :orderResp="orderResp" :paymentAsset="paymentAsset" />

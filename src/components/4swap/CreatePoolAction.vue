@@ -1,7 +1,7 @@
 <template>
   <f-button :disabled="!valid" :loading="loading" color="primary" @click="handleCreate">
-    <span v-if="meta.created">!!Pair has been Created</span>
-    <span>!!Create</span>
+    <span v-if="meta.created">{{ $t("pair.created") }}</span>
+    <span>{{ $t("create") }}</span>
   </f-button>
 </template>
 
@@ -62,13 +62,13 @@ class CreatePoolAction extends Vue {
           const state = resp.order.state;
 
           if (state === "REJECTED") {
-            this.$uikit.toast.error({ message: "Rejected" })
+            this.$uikit.toast.error({ message: this.$t("rejected") as string })
             return true;
           }
 
           if (state === "PROCESSED") {
             await this.$store.dispatch(GlobalActions.LOAD_PAIRS)
-            this.$uikit.toast.success({ message: "Processed" })
+            this.$uikit.toast.success({ message: this.$t("processed") as string })
             return true;
           }
 

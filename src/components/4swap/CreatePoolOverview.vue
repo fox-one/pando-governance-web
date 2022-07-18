@@ -1,6 +1,6 @@
 <template>
   <div class="overview-card">
-    <div class="label">Info</div>
+    <div class="label">{{ $t("info") }}</div>
     <div>
       <information-item v-for="(item, index) in items" :key="index" :item="item" />
     </div>
@@ -28,8 +28,8 @@ class CreatePoolOverview extends Vue {
 
   get items() {
     return [
-      { title: "DApp", value: this.meta.name, logo: this.meta.avatar },
-      this.meta.author && { title: "Author", value: this.meta.author, logo: this.meta.authorAvatar },
+      { title: this.$t("dapp"), value: this.meta.name, logo: this.meta.avatar },
+      this.meta.author && { title: this.$t("author"), value: this.meta.author, logo: this.meta.authorAvatar },
     ].filter((v) => !!v);
   }
 }

@@ -25,7 +25,7 @@ class ProposalActions extends Vue {
       // 4swap
       "a753e0eb-3010-4c4a-a7b2-a7bda4063f62": [
         {
-          text: "!!Create Pool",
+          text: this.$t("pool.create"),
           action: () => {
             this.$router.push({ name: "4swap-pool-create" });
           },

@@ -1,11 +1,11 @@
 <template>
   <div v-if="meta.show">
-    <div class="label mt-8">Generated lpToken</div>
+    <div class="label mt-8">{{ $t("lp.generated") }}</div>
     <div class="info-card">
       <div class="card-title">{{ meta.lpSymbol }}</div>
       <div class="card-text">{{ meta.lpName }}</div>
     </div>
-    <div class="label mt-8">Fee</div>
+    <div class="label mt-8">{{ $t("fee") }}</div>
     <div class="info-card fee">
       <span class="mr-4">
         <v-img width="24" height="24" :src="meta.logo" />

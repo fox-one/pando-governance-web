@@ -1,14 +1,12 @@
 <template>
   <div class="rules">
-    <div class="label">!!Rules</div>
+    <div class="label">{{ $t("rules") }}</div>
 
     <ul class="items mt-4">
-      <li class="item">A fee will be charged for each request.</li>
-      <li class="item">
-        The request will be processed and results informed within 3 business days.
-      </li>
-      <li class="item">If the request is denied, you will receive a full refund.</li>
-      <li class="item">If you cannot find the token you want to add, please contact us.</li>
+      <li class="item">{{ $t("rules_1") }}</li>
+      <li class="item">{{ $t("rules_2") }}</li>
+      <li class="item">{{ $t("rules_3") }}</li>
+      <li class="item">{{ $t("rules_4") }}</li>
     </ul>
   </div>
 </template>
