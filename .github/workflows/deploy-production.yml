@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
+          token: ${{ secrets.PAT }}
           submodules: true
 
       - uses: actions/cache@v2
