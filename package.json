@@ -15,6 +15,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "yarn lint",
     "dev": "nuxt",
+    "dev:product": "APP_ENV=prod nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
@@ -22,7 +23,9 @@
   "dependencies": {
     "@foxone/fennec-dapp": "^0.5.4",
     "@foxone/icons": "^3.1.2",
-    "@foxone/uikit": "^3.1.9-4",
+    "@foxone/mixin-passport": "^0.1.20",
+    "@foxone/mvm": "^0.1.8",
+    "@foxone/uikit": "^3.2.3",
     "@foxone/utils": "^0.2.22",
     "@nuxtjs/dotenv": "^1.4.1",
     "nuxt": "^2.0.0",

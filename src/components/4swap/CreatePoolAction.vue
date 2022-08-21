@@ -1,7 +1,7 @@
 <template>
   <f-button :disabled="!valid" :loading="loading" color="primary" @click="handleCreate">
     <span v-if="meta.created">{{ $t("pair.created") }}</span>
-    <span>{{ $t("create") }}</span>
+    <span v-else>{{ $t("create") }}</span>
   </f-button>
 </template>
 
@@ -24,7 +24,7 @@ class CreatePoolAction extends Vue {
 
   get meta() {
     const pairs:Pair[] = this.$store.state.fswap.pairs;
-    const id1 = this.asset1?.assetId ?? '';
+    const id1 = this.asset1?.assetId ?? "";
     const id2 = this.asset2?.assetId ?? ""
     const created = pairs.find(({ baseAssetId, quoteAssetId }) => {
       return (baseAssetId === id1 && quoteAssetId === id2) || (baseAssetId === id2  && quoteAssetId === id1)
@@ -51,7 +51,7 @@ class CreatePoolAction extends Vue {
       this.bindOrderResp = orderResp;
       this.bindPaymentAsset = asset;
 
-      await this.$uikit.passport.payment({
+      await this.$passport.payment({
         amount: transfer.amount,
         assetId: transfer.assetId,
         recipient: transfer.opponentId,
