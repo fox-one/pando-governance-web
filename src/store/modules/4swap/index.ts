@@ -15,7 +15,13 @@ const actions: ActionTree<State.Proposal, any> = {
   async [ActionTypes.LOAD_ASSETS]({ commit }) {
     const resp = await this.$apis.ListAssetsJSON({});
 
-    commit(MutationTypes.SET_ASSETS, resp?.assets ?? []);
+    const assets = resp.assets.map((asset) => {
+      const chainAsset = resp.assets.find((x) => x.assetId === asset.chainId);
+
+      return { ...asset, chainLogo: chainAsset?.logo ?? "" };
+    });
+
+    commit(MutationTypes.SET_ASSETS, assets);
   },
 
   async [ActionTypes.LOAD_PAIRS]({ commit }) {
